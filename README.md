@@ -129,7 +129,7 @@ class ListaDePessoasSerializer(serializers.ModelSerializer):
 ```
 
 # Templates
-Vamos criar ``templates/desafio/upload.html`` para recebermos o arquivo que iremos consumir em nossa API:
+Vamos criar ``templates/desafio/upload.html`` para fazer upload do arquivo que iremos consumir em nossa API:
 ```python
 {% extends 'base.html' %}
 {% load static %}
