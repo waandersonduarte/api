@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<center><a href="http://127.0.0.1:8000/desafio/"><button class="btn btn-primary">API - Consumindo Arquivo</button></a></center>
+{%include 'parciais/_messages.html'%}
+
+    <form action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+{% endblock conteudo %}
+
+  
