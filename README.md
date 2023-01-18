@@ -245,8 +245,6 @@ class ListaDePessoasViewSet(viewsets.ModelViewSet):
     #search_fields = ['nome']
     filterset_fields = ['sexo']
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 # Routers
 Vamos editar ``core/urls.py`` no editor de código:
@@ -282,5 +280,3 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000/
 ```
-=======
->>>>>>> origin/master
