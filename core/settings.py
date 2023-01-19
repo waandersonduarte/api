@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import django_heroku #no inicio
 
 from pathlib import Path
 import os
@@ -153,3 +154,4 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+django_heroku.settings(locals()) #no fim
