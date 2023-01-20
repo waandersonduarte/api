@@ -1,6 +1,6 @@
 # API - Django Rest Framework
 O foco do projeto é o desenvolvimento de uma API para consumir os dados de um arquivo excel.
-O Django Rest Framework auxilia na usabilidade do sistema facilitando a manipulação das informações contidas no Banco de Dados. Além disso, contém sistema de autenticação e serialização dos dados.
+O Django Rest Framework auxilia na usabilidade do sistema facilitando a manipulação das informações contidas no Banco de Dados.
 
 ## Criando o diretório do projeto
 ```
