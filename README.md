@@ -2,19 +2,19 @@
 O foco do projeto é o desenvolvimento de uma API para consumir os dados de um arquivo excel.
 O Django Rest Framework auxilia na usabilidade do sistema facilitando a manipulação das informações contidas no Banco de Dados. Além disso, contém sistema de autenticação e serialização dos dados.
 
-# Criando o diretório do projeto
+## Criando o diretório do projeto
 ```
 mkdir desafio_api
 cd clinica_api
 ```
 
-# Criando o ambiente virtual
+## Criando o ambiente virtual
 ```
 virtualenv venv
 . venv/bin/activate  
 ```
 
-# Instalando as ferramentas necessárias para nossa aplicação
+## Instalando as ferramentas necessárias para nossa aplicação
 ```
 pip install django
 pip install djangorestframework
@@ -24,13 +24,13 @@ pip install pandas
 pip install openpyxl
 ```
 
-# Criando o projeto e a aplicação
+## Criando o projeto e a aplicação
 ```
 django-admin startproject core .  
 django-admin startapp desafio
 ```
 
-# Configurando o settings.py
+## Configurando o settings.py
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-# Criando os modelos para o nosso desafio de consumir um arquivo 
+## Criando os modelos para o nosso desafio de consumir um arquivo 
 No arquivo ``desafio/models.py`` definimos todos os objetos chamados Modelos, este é um lugar em que vamos definir os relacionamentos entre as classes que estaram presentes na nossa clinica definidos no nosso diagrama e classes.
 
 Vamos abrir ``desafio/models.py`` no editor de código, apagar tudo dele e escrever o seguinte código:
@@ -84,7 +84,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-# Admin
+## Admin
 ```
 python manage.py createsuperuser
 ```
@@ -113,7 +113,7 @@ class Uploads(admin.ModelAdmin):
 admin.site.register(Upload, Uploads)
 ```
 
-# Serializers
+## Serializers
 Iremos criar um arquivo ``desafio/serializers.py``:
 
 ```python
@@ -132,7 +132,7 @@ class ListaDePessoasSerializer(serializers.ModelSerializer):
         fields = '__all__'
 ```
 
-# Templates
+## Templates
 Vamos criar ``templates/desafio/upload.html`` para fazer upload do arquivo que iremos consumir em nossa API:
 ```python
 {% extends 'base.html' %}
@@ -151,7 +151,7 @@ Vamos criar ``templates/desafio/upload.html`` para fazer upload do arquivo que i
     </form>
 {% endblock conteudo %}
 ```
-
+## Urls
 Criaremos o arquivo ``desafio/urls.py``:
 ```python
 from django.urls import path
@@ -161,7 +161,7 @@ urlpatterns = [
     path('', views.index, name='index'),
 ]
 ```
-# Views
+## Views
 Vamos abrir ``desafio/views.py`` no editor de código, apagar tudo dele e escrever o seguinte código:
 ```python
 from django.shortcuts import render, redirect
@@ -246,11 +246,10 @@ class ListaDePessoasViewSet(viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = ['nascimento']
-    #search_fields = ['nome']
     filterset_fields = ['sexo']
 ```
 
-# Routers
+## Routers
 Vamos editar ``core/urls.py`` no editor de código:
 ```python
 from django.contrib import admin
@@ -276,7 +275,7 @@ if settings.DEBUG:
         document_root=settings.MEDIA_ROOT,
     )
 ```
-# Testando a API
+## Testando a API
 Vamos startar o servidor web
 ```
 python manage.py runserver
