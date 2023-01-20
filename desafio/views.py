@@ -79,7 +79,6 @@ class MulheresDeMereenViewSet(viewsets.ModelViewSet):
 class ListaDePessoasViewSet(viewsets.ModelViewSet):
     queryset = DadosArquivo.objects.all()
     serializer_class = ListaDePessoasSerializer
-    #TODO: README
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     search_fields = ['nome', 'sobrenome']
     ordering_fields = ['nascimento']

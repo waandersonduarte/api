@@ -244,9 +244,11 @@ class ListaDePessoasViewSet(viewsets.ModelViewSet):
     queryset = DadosArquivo.objects.all()
     serializer_class = ListaDePessoasSerializer
 
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    search_fields = ['nome', 'sobrenome']
     ordering_fields = ['nascimento']
     filterset_fields = ['sexo']
+    
 ```
 
 ## Routers
@@ -283,3 +285,8 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000/
 ```
+Aplicação em servidor web:
+```
+https://api-consumindo-arquivo.up.railway.app/
+```
+
