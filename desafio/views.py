@@ -8,9 +8,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 import pandas as pd
 import sqlite3
 from datetime import date
+from django.views.decorators.csrf import csrf_exempt
 
 
-
+@csrf_exempt
 def index(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
